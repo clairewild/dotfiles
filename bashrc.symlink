@@ -1,42 +1,23 @@
-alias reload!='. ~/.bashrc'
+### load extensions ###
 
+source "$HOME/.git-completion.bash"
+source "$HOME/.git-prompt.sh"
+
+### ENV variables ###
+
+# look for commands in these places
+export PATH="/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH"
 export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
 
-if [ -e ~/.localrc ]; then
-  source ~/.localrc
-fi
+# make vim the default text editor
+export EDITOR="vim"
 
-## Vagrant
-
-alias vu="vagrant up"
-alias vs="vagrant ssh"
-alias vr="vagrant reload"
-alias vh="vagrant halt"
-
-# Ruby/Rails
-
-alias rs="rails server"
-alias rc="rails console"
-
-## Ember
-
-alias es="ember server"
-
-## Git
-
-if [ -f ~/.git-completion ]; then
-  source ~/.git-completion
-fi
-
-alias gf="git fetch"
-alias gco="git checkout"
-alias gr="git rebase"
-
-## Prompt
-BLUE="$(tput setaf 4)"
+# prompt that includes git branch info
 RED="$(tput setaf 1)"
-TAN="$(tput setaf 5)"
+BLUE="$(tput setaf 4)"
+MAGENTA="$(tput setaf 5)"
+CYAN="$(tput setaf 6)"
+WHITE="$(tput setaf 7)"
 RESET="$(tput sgr0)"
 USERNAME="\u"
 CURRENT_DIRECTORY="\w"
@@ -47,9 +28,45 @@ git_branch() {
 
 git_prompt() {
   if [ ! -z `git_branch` ]
-  then echo " on ${RED}`git_branch`${RESET}"
+  then echo " ${WHITE}(`git_branch`)${RESET}"
   else echo ""
   fi
 }
 
-export PS1="${BLUE}${USERNAME}${RESET} in ${TAN}${CURRENT_DIRECTORY}${RESET}\`git_prompt\` > "
+export PS1="${BLUE}${USERNAME}${RESET} in ${RED}${CURRENT_DIRECTORY}${RESET}\`git_prompt\` > "
+
+### aliases ###
+
+alias reload!='. ~/.bashrc'
+
+# Vagrant
+alias vu="vagrant up"
+alias vs="vagrant ssh"
+alias vr="vagrant reload"
+alias vh="vagrant halt"
+
+# Ruby/Rails
+alias rs="rails server"
+alias rc="rails console"
+
+# Ember
+alias es="ember server"
+
+# Git
+alias ga="git add -A"
+alias gc="git commit -m"
+alias gs="git status"
+alias gco="git checkout"
+alias branch="git branch"
+alias remote="git remote"
+alias push="git push"
+alias pull="git pull"
+
+### other ###
+
+# initialize rbenv
+eval "$(rbenv init -)"
+
+# initialize node version manager
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"
