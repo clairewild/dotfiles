@@ -33,6 +33,55 @@
 # OS generated files #
 ######################
 .DS_Store*
+.AppleDouble
+.LSOverride
 ehthumbs.db
 Icon?
 Thumbs.db
+
+# Ruby #
+########
+*.gem
+*.rbc
+/.config
+/coverage/
+/InstalledFiles
+/pkg/
+/spec/reports/
+/spec/examples.txt
+/test/tmp/
+/test/version_tmp/
+/tmp/
+/.yardoc/
+/_yardoc/
+/doc/
+/rdoc/
+/.bundle/
+/vendor/bundle
+/lib/bundler/man/
+
+# Rails #
+#########
+capybara-*.html
+/log
+/db/*.sqlite3
+/db/*.sqlite3-journal
+/public/system
+/coverage/
+/spec/tmp
+**.orig
+rerun.txt
+pickle-email-*.html
+.byebug_history
+
+# Webpack #
+###########
+/app/assets/javascripts/bundle.js
+/app/assets/javascripts/bundle.js.map
+
+# Node #
+########
+logs
+*.log
+npm-debug.log*
+node_modules
