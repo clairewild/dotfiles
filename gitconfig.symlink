@@ -5,7 +5,9 @@
 	c = commit -m
 	co = checkout
 	d = diff --ignore-space-change
+	f = fetch
 	l = log --pretty=format:\"%C(green)%h%C(reset) %C(blue)%ad%C(reset) %s%C(yellow)%d%C(reset) %C(blue)[%an]%C(reset)\" --graph --date=short
+	m = merge
 	s = status
 	r = remote
 [color]
