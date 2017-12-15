@@ -1,7 +1,7 @@
 ### load extensions ###
 
-source "$HOME/.git-completion.bash"
-source "$HOME/.git-prompt.sh"
+source "${HOME}/.git-completion.bash"
+source "${HOME}/.git-prompt.sh"
 
 ### ENV variables ###
 
@@ -48,6 +48,7 @@ alias vh="vagrant halt"
 # Ruby/Rails
 alias rs="rails server"
 alias rc="rails console"
+alias be="bundle exec"
 
 # Ember
 alias es="ember server"
@@ -65,6 +66,10 @@ alias gm="git merge"
 alias push="git push"
 alias pull="git pull"
 
+# Heroku
+alias hr="heroku run"
+alias hrrc="heroku run rails console"
+
 ### other ###
 
 # initialize rbenv
@@ -73,3 +78,8 @@ eval "$(rbenv init -)"
 # initialize node version manager
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+
+# download zesty data
+alias download_m=script/backup/download_sanitized_data.sh -p 27017 -d backend_development
+alias download_pg=script/backup/download_postgres_data.sh -p 5432 -d backend_development

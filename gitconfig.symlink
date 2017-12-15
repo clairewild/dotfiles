@@ -19,3 +19,5 @@
 [user]
 	name = Claire Wild
 	email = claire@zesty.com
+[url "https://"]
+	insteadOf = git://
