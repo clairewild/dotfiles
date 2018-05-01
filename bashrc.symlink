@@ -71,6 +71,10 @@ alias pull="git pull"
 alias hr="heroku run"
 alias hrrc="heroku run rails console"
 
+# Docker
+alias docker-memcached='docker run --rm -d -p 11211:11211 memcached:1.4.33'
+alias docker-redis='docker run -d -p 6379:6379 redis:3.2.4'
+
 ### other ###
 
 # initialize rbenv
@@ -84,3 +88,6 @@ export NVM_DIR="$HOME/.nvm"
 # download zesty data
 alias download_m=script/backup/download_sanitized_data.sh -p 27017 -d backend_development
 alias download_pg=script/backup/download_postgres_data.sh -p 5432 -d backend_development
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
