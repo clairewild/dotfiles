@@ -6,8 +6,10 @@ source "${HOME}/.git-prompt.sh"
 ### ENV variables ###
 
 # look for commands in these places
+export PATH="/Library/Frameworks/Python.framework/Versions/3.6/bin:${PATH}"
 export PATH="/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH"
 export PATH="$HOME/.rbenv/bin:$PATH"
+export PATH="$PATH:$HOME/.rvm/bin"
 
 # make vim the default text editor
 export EDITOR="vim"
@@ -71,14 +73,10 @@ alias pull="git pull"
 alias hr="heroku run"
 alias hrrc="heroku run rails console"
 
-# Docker
-alias docker-memcached='docker run --rm -d -p 11211:11211 memcached:1.4.33'
-alias docker-redis='docker run -d -p 6379:6379 redis:3.2.4'
-
 ### other ###
 
 # initialize rbenv
-eval "$(rbenv init -)"
+# eval "$(rbenv init -)"
 
 # initialize node version manager
 export NVM_DIR="$HOME/.nvm"
@@ -89,8 +87,7 @@ export NVM_DIR="$HOME/.nvm"
 alias download_m=script/backup/download_sanitized_data.sh -p 27017 -d backend_development
 alias download_pg=script/backup/download_postgres_data.sh -p 5432 -d backend_development
 
-# Set PATH for Python 3.6. The original version is saved in .bash_profile.pysave
-export PATH="/Library/Frameworks/Python.framework/Versions/3.6/bin:${PATH}"
-
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
+# square go links
+export GOROOT=/usr/local/opt/go/libexec
+export GOPATH=/go
+export GOFETCH_ALIASES=/config_files/config/go/aliases
