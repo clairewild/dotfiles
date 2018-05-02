@@ -76,7 +76,7 @@ alias hrrc="heroku run rails console"
 ### other ###
 
 # initialize rbenv
-# eval "$(rbenv init -)"
+eval "$(rbenv init -)"
 
 # initialize node version manager
 export NVM_DIR="$HOME/.nvm"
